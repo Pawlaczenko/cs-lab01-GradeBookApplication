@@ -28,8 +28,30 @@ namespace GradeBook.GradeBooks
             char[] grades = { 'A', 'B', 'C', 'D', 'F' };
 
             int index = scoredHigher / stundenstPercentage;
-            return grades[index];
-            
+            return grades[index];   
+        }
+
+        public override void CalculateStatistics()
+        {
+            if (Students.Count < 5)
+            {
+                Console.WriteLine("Ranked grading requires at least 5 students.");
+            }
+            else
+            {
+                base.CalculateStatistics();
+            }
+        }
+
+        public override void CalculateStudentStatistics(string name)
+        {
+            if(Students.Count < 5)
+            {
+                Console.WriteLine("Ranked grading requires at least 5 students.");
+            } else
+            {
+                base.CalculateStudentStatistics(name);
+            }
         }
     }
 }
